@@ -2,7 +2,7 @@ import sys
 import argparse
 from pathlib import Path
 
-from .headlessXttsTrain import run_tts_headless, load_model_headless
+from .headlessXttsTrain2 import run_tts_headless, load_model_headless
 
 # Global variable for the loaded model (needed for inference step)
 XTTS_MODEL = None
