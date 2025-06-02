@@ -9,15 +9,12 @@ import subprocess # For running ffmpeg
 import math
 
 # Keep relevant imports from the original script
-import librosa # For duration check
 import numpy as np
 import torch
 import torchaudio
 import traceback
 from .utils.formatter import format_audio_list, list_audios # Assuming these utils exist and work standalone
 from .utils.gpt_train import train_gpt # Assuming this util exists and works standalone
-
-from faster_whisper import WhisperModel # Keep for data processing
 
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
@@ -203,6 +200,8 @@ def prepare_audio(input_path, temp_dir, max_duration_minutes=40):
         return current_file
 
 def preprocess_dataset_headless(audio_file_path, language, whisper_model_name, dataset_out_path, whisper_model_root):
+    from faster_whisper import WhisperModel # Keep for data processing
+
     """Headless version of preprocess_dataset."""
     clear_gpu_cache()
     print(f"\n--- Starting Step 1: Data Processing ---")
